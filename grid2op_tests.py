@@ -17,7 +17,8 @@ from tqdm import tqdm
 path_agents = "./" # "agent_pseudo_random"
 with warnings.catch_warnings():
     warnings.filterwarnings("ignore")
-    env = grid2op.make("rte_case14_realistic")
+    #env = grid2op.make("rte_case14_realistic")
+    env = grid2op.make("l2rpn_neurips_2020_track1", test=True, difficulty="0")
     
     
 
@@ -96,7 +97,7 @@ class DoNothing(RandomAgent):
 
 # execute this agent on 1 scenario, saving the results
 runner = Runner(**env.get_params_for_runner(), agentClass=CustomRandom) #DoNothingAgent)
-path_agent = os.path.join(path_agents, "DoNothingAgent")
+path_agent = os.path.join(path_agents, "CustomRandom")
 res = runner.run(nb_episode=1, path_save=path_agent, pbar=tqdm)
 # and now reload it and display the "movie" of this scenario
 plot_epi = EpisodeReplay(path_agent)
