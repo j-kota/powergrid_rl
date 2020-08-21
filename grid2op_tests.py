@@ -1,11 +1,8 @@
-"""
-import grid2op
-from grid2op.Reward import GameplayReward, L2RPNReward
-env = grid2op.make("l2rpn_2019", reward_class=L2RPNReward, other_rewards={"gameplay": GameplayReward})
-obs = env.reset()
-act = env.action_space()  
-obs, reward, done, info = env.step(act) 
-"""
+# powergrid_rl project initial commit 
+# Loads an environment, defines a basic Agent and runs 
+#    simulations using those two objects
+# A gif file is saved locally which shows a video of the runs
+
 
 
 import os
